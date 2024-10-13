@@ -3,9 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><%= title %></title>
 </head>
 <body>
-    <h1>Home</h1>
+    <h1><%= title %></h1>
+
+    <ul>
+        <% messages.forEach(function(message) { %>
+            <li>
+                <strong><%= message.user %>:</strong> <%= message.text %>
+                <br>
+                <em>Added on: <%= message.added.toLocaleString() %></em>
+            </li>
+        <% }) %>
+    </ul>
+
+    <a href="/new">Add a new message</a>
 </body>
 </html>
