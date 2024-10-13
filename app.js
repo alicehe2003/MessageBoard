@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
 
 // Serve new message 
 app.get('/new', (req, res) => {
-    res.render('new'); 
+    res.render('form', { title: "Add a New Message" }); 
 })
 
 // Serve 404 page for any unknown route 
