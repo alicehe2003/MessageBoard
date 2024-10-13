@@ -31,6 +31,17 @@ app.get('/', (req, res) => {
     ); 
 }); 
 
+// Serve message details page 
+app.get('/message/:id', (req, res) => {
+    const messageId = parseInt(req.params.id); 
+
+    if (messages[messageId]) {
+        res.render('details', { title: "Message Details", message: messages[messageId] }); 
+    } else {
+        res.status(404).render('404'); 
+    }
+}); 
+
 // Serve new message 
 app.get('/new', (req, res) => {
     res.render('form', { title: "Add a New Message" }); 
